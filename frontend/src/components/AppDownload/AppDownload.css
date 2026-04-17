@@ -1,0 +1,21 @@
+.app-download {
+  margin: 100px auto 0; /* shorthand for margin-top + centering */
+  font-size: max(3vw, 20px); /* responsive font size */
+  text-align: center;
+  font-weight: 500;
+}
+
+.app-download-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 180px;
+  margin-top: 30px;
+}
+
+.app-download-platforms img {
+  width: max(30vw, 120px);
+  max-width: 80px;
+  transition: 0.5s;
+  cursor: pointer;
+  transform: rotate(270deg);
+}

@@ -1,0 +1,32 @@
+.food-display{
+    margin-top: 30px;
+}
+.food-display h2{
+    font-size: max(2vw,24px);
+    font-weight: 600;
+}
+.food-display-status {
+  margin-top: 20px;
+  color: #555;
+}
+.food-display-error {
+  color: #b91c1c;
+}
+.food-display-hint {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+.food-display-hint code {
+  font-size: 13px;
+  background: #f3f3f3;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.food-display-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
