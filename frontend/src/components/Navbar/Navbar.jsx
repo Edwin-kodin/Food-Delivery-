@@ -61,9 +61,11 @@ const Navbar = ({ setShowLogin }) => {
             <span className="navbar-user-name" title={user.email}>
               Hi, {user.name.split(" ")[0]}
             </span>
-            <button type="button" onClick={() => logout()}>
-              Log out
-            </button>
+            <ul className="nav-profile-dropdown">
+              <li onClick={()=>window.location.href='/myorders'}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+              <hr />
+              <li onClick={() => logout()}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+            </ul>
           </div>
         ) : (
           <button type="button" onClick={() => setShowLogin(true)}>

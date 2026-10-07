@@ -21,8 +21,7 @@ const FoodDisplay = ({ category }) => {
         <h2>Top dishes near you</h2>
         <p className="food-display-status food-display-error">{foodsError}</p>
         <p className="food-display-hint">
-          Start the Laravel API from the <code>backend</code> folder:{" "}
-          <code>php artisan serve</code>
+          Make sure your Node.js backend is running (<code>npm run server</code>) and that you've restarted the frontend (<code>npm run dev</code>).
         </p>
       </div>
     );
@@ -36,8 +35,8 @@ const FoodDisplay = ({ category }) => {
           if (category !== "All" && category !== item.category) return null;
           return (
             <FoodItem
-              key={item._id}
-              id={item._id}
+              key={item.id}
+              id={item.id}
               name={item.name}
               description={item.description}
               price={item.price}

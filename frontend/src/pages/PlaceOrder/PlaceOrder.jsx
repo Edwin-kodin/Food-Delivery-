@@ -57,7 +57,7 @@ const PlaceOrder = () => {
 
     setSubmitting(true);
     try {
-      const json = await apiFetch("/orders", {
+      const json = await apiFetch("/order/place", {
         method: "POST",
         body: {
           first_name: data.firstName,
@@ -286,10 +286,10 @@ const PlaceOrder = () => {
         <h2>Order summary</h2>
         <div className="place-order-items">
           {food_list.map((item) => {
-            const qty = cartItems[item._id];
+            const qty = cartItems[item.id];
             if (!qty) return null;
             return (
-              <div key={item._id} className="place-order-line">
+              <div key={item.id} className="place-order-line">
                 <span>
                   {item.name} × {qty}
                 </span>

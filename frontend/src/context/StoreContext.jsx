@@ -29,7 +29,7 @@ const StoreContextProvider = (props) => {
     let cancelled = false;
     (async () => {
       try {
-        const json = await apiFetch("/foods");
+        const json = await apiFetch("/food/list");
         if (!cancelled) {
           setFoodList(json.data || []);
           setFoodsError(null);
@@ -71,7 +71,7 @@ const StoreContextProvider = (props) => {
   const getTotalCartAmount = () => {
     let total = 0;
     for (const item of food_list) {
-      const qty = cartItems[item._id];
+      const qty = cartItems[item.id];
       if (qty > 0) total += item.price * qty;
     }
     return total;

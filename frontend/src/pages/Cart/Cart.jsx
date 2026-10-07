@@ -21,7 +21,7 @@ const Cart = () => {
 
   const cartLines = useMemo(
     () =>
-      food_list.filter((item) => (cartItems[item._id] || 0) > 0),
+      food_list.filter((item) => (cartItems[item.id] || 0) > 0),
     [food_list, cartItems]
   );
 
@@ -71,16 +71,18 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {cartLines.map((item) => (
-          <div key={item._id}>
+        {cartLines.map((item) => {
+          const imageUrl = item.image.startsWith('http') ? item.image : `http://localhost:4000/images/${item.image}`;
+          return (
+          <div key={item.id}>
             <div className="cart-items-title cart-items-item">
-              <img src={item.image} alt="" />
+              <img src={imageUrl} alt="" />
               <p>{item.name}</p>
               <p>${item.price}</p>
-              <p>{cartItems[item._id]}</p>
-              <p>${item.price * cartItems[item._id]}</p>
+              <p>{cartItems[item.id]}</p>
+              <p>${item.price * cartItems[item.id]}</p>
               <p
-                onClick={() => removeFromCart(item._id)}
+                onClick={() => removeFromCart(item.id)}
                 className="cross"
               >
                 x
@@ -88,7 +90,7 @@ const Cart = () => {
             </div>
             <hr />
           </div>
-        ))}
+        )})}
       </div>
       <div className="cart-bottom">
         <div className="cart-total">

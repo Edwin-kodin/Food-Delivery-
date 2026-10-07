@@ -48,12 +48,12 @@ export async function apiFetch(path, options = {}) {
 
   const hasTokenOption = Object.prototype.hasOwnProperty.call(options, "token");
   const token = hasTokenOption ? tokenOption : getStoredToken();
-  if (token) headers.Authorization = `Bearer ${token}`;
+  if (token) headers.token = token;
 
   const res = await fetch(url, { ...fetchOptions, headers });
   const data = await res.json().catch(() => ({}));
 
-  if (!res.ok) {
+  if (!res.ok || data.success === false) {
     const err = new Error(errorMessage(data, res.status));
     err.status = res.status;
     err.data = data;

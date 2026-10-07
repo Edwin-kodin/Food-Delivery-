@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
       setReady(true);
       return;
     }
-    apiFetch("/user")
+    apiFetch("/user/profile")
       .then((json) => setUser(json.user))
       .catch(() => {
         setStoredToken(null);
@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const json = await apiFetch("/login", {
+    const json = await apiFetch("/user/login", {
       method: "POST",
       body: { email, password },
       token: "",
@@ -55,7 +55,7 @@ export function AuthProvider({ children }) {
   };
 
   const register = async (name, email, password) => {
-    const json = await apiFetch("/register", {
+    const json = await apiFetch("/user/register", {
       method: "POST",
       body: { name, email, password },
       token: "",
